@@ -1,0 +1,39 @@
+schema: '2.0'
+stages:
+  Data_ingestion:
+    cmd: python src\pipeline\Traning_pipline.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: b9539762428370b020f4fdf28b48e4bf
+      size: 401
+    - path: src\pipeline\Traning_pipline.py
+      hash: md5
+      md5: dd64212729fc1bb5318b0989b45cf57e
+      size: 1224
+    outs:
+    - path: artifacts/Data_ingestion/data
+      hash: md5
+      md5: 48a46b7cc96a84e0be9a81257723566d.dir
+      size: 25394015
+      nfiles: 723
+  Base_model:
+    cmd: python src\pipeline\Traning_pipline.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: b9539762428370b020f4fdf28b48e4bf
+      size: 401
+    - path: src\pipeline\Traning_pipline.py
+      hash: md5
+      md5: dd64212729fc1bb5318b0989b45cf57e
+      size: 1224
+    outs:
+    - path: artifacts/base_model/model.h5
+      hash: md5
+      md5: 976e3541df9a46bd0bc4507e32188fb0
+      size: 94793696
+    - path: artifacts/base_model/model_update.h5
+      hash: md5
+      md5: 46fa7862355ecf07850759dc22cdc3a9
+      size: 95602280
