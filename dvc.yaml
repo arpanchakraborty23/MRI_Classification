@@ -17,3 +17,15 @@ stages:
     outs:
      - artifacts/base_model/model.h5 
      - artifacts/base_model/model_update.h5
+
+  Model_Train:
+    cmd: python src\pipeline\Traning_pipline.py
+    deps:
+      - config/config.yaml
+      - src\pipeline\Traning_pipline.py
+      - artifacts/base_model/model_update.h5
+
+    outs:
+    - artifacts/model_train/model.h5
+
+   
