@@ -7,7 +7,7 @@ import mlflow.sklearn
 import mlflow.keras
 from keras.models import load_model
 from pathlib import Path
-
+import dagshub
 from src.logger.logging import logging
 from src.exception.exception import CustomException
 from src.utils.utils import save_model,save_json
@@ -53,6 +53,7 @@ class Evaluation:
         
     def log_to_mlflow(self):
         try:
+            dagshub.init(repo_owner='arpanchakraborty23', repo_name='MRI_Classification', mlflow=True)
             mlflow.set_registry_uri(self.config.mlflow_uri)
 
             track_uri_type=urlparse(mlflow.get_tracking_uri()).scheme

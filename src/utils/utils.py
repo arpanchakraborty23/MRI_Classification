@@ -7,6 +7,9 @@ import json
 from pathlib import Path
 import base64
 from keras.models import load_model
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style('whitegrid')
 
 from src.logger.logging import logging
 from src.exception.exception import CustomException
@@ -61,6 +64,23 @@ def load_h5_model(file_path):
     print(f"Model loaded from {file_path}")
     return model
 
+def plot_metrics(history):
+         # Retrieve the history from the model
+        epochs = range(1, len(history['accuracy']) + 1)
+
+        # Plotting training and validation accuracy
+        plt.figure(figsize=(10, 6))
+        plt.plot(epochs, history['accuracy'], 'bo-', label='Training Accuracy')
+        plt.plot(epochs, history['val_accuracy'], 'go-', label='Validation Accuracy')
+
+        plt.title('Training and Validation Accuracy over Epochs')
+        plt.xlabel('Epochs')
+        plt.ylabel('Accuracy')
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+
+        logging.info('Training and Validation Accuracy plot generated.')
 
 def save_json(path: Path, data: dict):
 

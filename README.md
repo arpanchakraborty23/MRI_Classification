@@ -30,6 +30,3 @@ python app.py
 6. Prediction Pipline
 
 ## Dagshub
-MLFLOW_TRACKING_URI=
-MLFLOW_TRACKING_USERNAME=
-MLFLOW_TRACKING_PASSWORD=

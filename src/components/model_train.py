@@ -7,6 +7,7 @@ from tensorflow import keras
 from src.configure.config_manager import ConfigManager
 from src.logger.logging import logging
 from src.exception.exception import CustomException
+from src.utils.utils import plot_metrics
 
 class ModelTraining:
     def __init__(self, config= ConfigManager()) -> None:
@@ -81,8 +82,9 @@ class ModelTraining:
         validation_data=self.valid_generator
     )
         print(self.model.history)
-        logging(self.model.history)
+        
 
+        plot_metrics(history = self.model.history.history )
         
         self.save_model(
             self.config.model_path,  
