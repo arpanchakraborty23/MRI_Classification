@@ -3,6 +3,10 @@ import sys
 import yaml
 import requests
 import tensorflow as tf
+import json
+from pathlib import Path
+import base64
+from keras.models import load_model
 
 from src.logger.logging import logging
 from src.exception.exception import CustomException
@@ -51,5 +55,23 @@ def get_data_dwonload(url,local_folder=None):
     
 def save_model(path,model:tf.keras.Model):
     model.save(path)
+
+def load_h5_model(file_path):
+    model = load_model(file_path)
+    print(f"Model loaded from {file_path}")
+    return model
+
+
+def save_json(path: Path, data: dict):
+
+    with open(path, "w") as f:
+        json.dump(data, f, indent=4)
+
+
+        logging.info(f' Created dir {path}')
         
-    
+def decodeImage(imgstring, fileName):
+    imgdata = base64.b64decode(imgstring)
+    with open(fileName, 'wb') as f:
+        f.write(imgdata)
+        f.close()

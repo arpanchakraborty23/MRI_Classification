@@ -29,4 +29,13 @@ class ModelTrainConfig:
     epochs: int
     batch_size: int
     image_size: bool
-    augmentation:list        
+    augmentation:list 
+
+@dataclass
+class Evaluation:
+    dir:Path
+    test_data: Path
+    mlflow_uri:str
+    image_size: int
+    batch_size: int
+    model_path: Path       

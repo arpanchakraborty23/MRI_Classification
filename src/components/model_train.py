@@ -11,6 +11,7 @@ from src.exception.exception import CustomException
 class ModelTraining:
     def __init__(self, config= ConfigManager()) -> None:
         self.config = config.model_train_config()
+        logging.info('<------------------ Model Traning -------------------------->')
 
     def get_base_model(self):
         self.model =keras.models.load_model(
@@ -79,10 +80,15 @@ class ModelTraining:
         validation_steps=self.validation_steps,
         validation_data=self.valid_generator
     )
+        print(self.model.history)
+        logging(self.model.history)
 
-
-
+        
         self.save_model(
             self.config.model_path,  
             self.model
         )
+
+        logging.info('<------------------  Model Train Completed --------------------->')
+
+       

@@ -5,10 +5,11 @@ from src.exception.exception import CustomException
 from src.components.data_ingestion import DataIngestion
 from src.components.base_model import BaseModel
 from src.components.model_train import ModelTraining
+from src.components.model_evaluation import Evaluation
 
 class TrainPipline:
     def __init__(self) -> None:
-        logging.info('******************* Traning Pipline ********************')
+        logging.info('******************************** Traning Pipline ********************************')
 
     def DataIngestionPipline(self):
         try:
@@ -38,7 +39,17 @@ class TrainPipline:
         except Exception as e:
             logging.info('erorr in  model train pipline ',str(e))
             raise CustomException(sys,e)
+        
+    def EvaluationPipline(self):
+        try:
+            obj=Evaluation()
+            obj.valid_genarator()
+            obj.evaluation()
+            obj.save_score()
 
+        except Exception as e:
+            logging.info('erorr in  model evaluation pipline ',str(e))
+            raise CustomException(sys,e)
 
 
 
@@ -48,6 +59,9 @@ if __name__=='__main__':
         obj.DataIngestionPipline()
         obj.BaseModelPipeline()
         obj.ModelTrainPipline()
+        obj.EvaluationPipline()
+
+        logging.info('************************** Training Pipline Completed *************************************')
         
     except Exception as e:
             logging.info('erorr in Train Pipline ',str(e))

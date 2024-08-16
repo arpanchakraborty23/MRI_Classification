@@ -4,7 +4,7 @@ from src.logger.logging import logging
 from src.exception.exception import CustomException
 from src.constant.ymal_path import *
 from src.utils.utils import read_yaml,create_dir
-from src.entity.config_entity import DataIngestionConfig,BaseModelConfig,ModelTrainConfig
+from src.entity.config_entity import DataIngestionConfig,BaseModelConfig,ModelTrainConfig,Evaluation
 
 
 class ConfigManager:
@@ -76,4 +76,25 @@ class ConfigManager:
 
         except Exception as e:
             logging.info(' error in Model Train config')
+            raise CustomException(sys,e)
+
+    def evaluation_config(self):
+        try:
+            config=self.config['Model_Evaluation']
+
+            evaluation_config=Evaluation(    
+                dir=config['dir'],
+                test_data=config['test_data'],
+                mlflow_uri=config['mlflow_url'],
+                batch_size=self.param['BATCH_SIZE'],
+                image_size=self.param['IMAGE_SIZE']
+                )
+               
+                
+            
+
+            return evaluation_config
+
+        except Exception as e:
+            logging.info(f'error in evaluation config {str(e)}')
             raise CustomException(sys,e)

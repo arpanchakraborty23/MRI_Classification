@@ -13,10 +13,14 @@ Base_model:
 
 Model_Train:
   dir: model
-  model_path: model/model.h5
+  model_path: artifacts/model_train/model.h5
   train_data: artifacts/Data_ingestion/data/train
   validation_data: artifacts/Data_ingestion/data/valid
   
   
 Model_Evaluation:
+  dir: artifacts/artifaacts/model_evaluation
+  test_data: artifacts\Data_ingestion\data\test
+  mlflow_url: https://dagshub.com/arpanchakraborty23/MRI_Classification.mlflow
+  model_path: artifacts/model_train/model.h5
   

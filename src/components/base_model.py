@@ -1,6 +1,5 @@
 import os,sys
 import urllib.request as request
-from zipfile import ZipFile
 import tensorflow as tf
 from tensorflow import keras
 from pathlib import Path
@@ -17,7 +16,7 @@ class BaseModel:
 
     def get_base_model(self):
         try:
-            logging.info('base model creation started')
+            logging.info('<------------------ Base Model --------------------->')
 
             self.model=VGG16(
                 input_shape=self.config.image_size,
@@ -80,4 +79,4 @@ class BaseModel:
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
 
-        
+    logging.info('<------------------ Base Model Completed --------------------->') 
