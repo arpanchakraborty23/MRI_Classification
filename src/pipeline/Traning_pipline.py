@@ -59,7 +59,7 @@ if __name__=='__main__':
         obj.DataIngestionPipline()
         obj.BaseModelPipeline()
         obj.ModelTrainPipline()
-        obj.EvaluationPipline()
+        #obj.EvaluationPipline()
 
         logging.info('************************** Training Pipline Completed *************************************')
         
