@@ -1,6 +1,10 @@
 # End TO End Mri Classification 
 
 
+
+## Data Pipline
+[Screenshot 2024-10-25 203808.png]
+
 ## How to run ?
 
 ### Create Conda Env
