@@ -5,10 +5,14 @@ This project leverages the VGG-16 convolutional neural network (CNN) architectur
 The project uses a pre-trained VGG-16 model as a feature extractor. VGG-16, originally trained on the ImageNet dataset, is fine-tuned on the MRI dataset to adapt the model to the specific features relevant to medical images. The model undergoes transfer learning, where the pre-trained weights are adjusted to improve classification performance for the MRI data. The project aims to develop an automated classification system that can be integrated into clinical settings to aid in quicker diagnosis and decision-making.
 
 ## Key Features:
-Pre-trained Model: The VGG-16 model is pre-trained on ImageNet and used for feature extraction.
-Transfer Learning: Fine-tuning of the pre-trained model to adapt it to MRI classification tasks.
-High Accuracy: The use of VGG-16 ensures high classification accuracy due to its depth and performance on similar image tasks.
-Medical Imaging Focus: Specific focus on MRI scans for detecting medical conditions.
+### Pre-trained Model: 
+The VGG-16 model is pre-trained on ImageNet and used for feature extraction.
+### Transfer Learning: 
+Fine-tuning of the pre-trained model to adapt it to MRI classification tasks.
+### High Accuracy: 
+The use of VGG-16 ensures high classification accuracy due to its depth and performance on similar image tasks.
+### Medical Imaging Focus: 
+Specific focus on MRI scans for detecting medical conditions.
 
 ## Dataset
 The project uses a publicly available MRI dataset, which contains labeled MRI scans for various conditions (e.g., brain tumors, Alzheimer's disease, etc.).
