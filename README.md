@@ -1,9 +1,19 @@
 # End TO End Mri Classification 
+Project Overview
+This project leverages the VGG-16 convolutional neural network (CNN) architecture to classify MRI images into various categories, such as detecting the presence of brain tumors, Alzheimer's disease, or other medical conditions based on MRI scans. The goal is to build an efficient deep learning model that can assist healthcare professionals in diagnosing conditions from medical imaging.
 
+The project uses a pre-trained VGG-16 model as a feature extractor. VGG-16, originally trained on the ImageNet dataset, is fine-tuned on the MRI dataset to adapt the model to the specific features relevant to medical images. The model undergoes transfer learning, where the pre-trained weights are adjusted to improve classification performance for the MRI data. The project aims to develop an automated classification system that can be integrated into clinical settings to aid in quicker diagnosis and decision-making.
 
+## Dataset
+The project uses a publicly available MRI dataset, which contains labeled MRI scans for various conditions (e.g., brain tumors, Alzheimer's disease, etc.).
+
+Dataset Details:
+Source: [Dataset link]
+Categories: Tumor, No Tumor, or other specific medical conditions
+Preprocessing: Resizing images to 224x224 pixels and normalization for input into the VGG-16 network.
 
 ## Data Pipline
-[Screenshot 2024-10-25 203808.png]
+[!Screenshot 2024-10-25 203808.png]
 
 ## How to run ?
 
